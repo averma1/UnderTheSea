@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Finding Fish Zone - Lights Under the Sea Exhibit</title>
+        <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+        <script src="script.js" type="text/javascript"> </script>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    </head>
+
+    <body onload="lightshowControls()">
+        <h1> <img src="https://fontmeme.com/permalink/200329/a74d8de150ec69189ed3342bbf5d9195.png" alt="the-little-mermaid-font" border="0" width="614" height="100"> </h1>
+        <div class="lights">
+            <ul>
+                <li id="light1"></li>
+                <li id="light2"></li>
+                <li id="light3"></li>
+                <li id="light4"></li>
+                <li id="light5"></li>
+                <li id="light6"></li>
+                <li id="light7"></li>
+            </ul>
+        </div>
+
+              
+        <div class="bubbles bubble1"></div>
+        <div class="bubbles bubble2"></div>
+        <div class="bubbles bubble3"></div>
+        <div class="bubbles bubble4"></div>
+
+        
+        <div class="tab">
+            <button id="defaultOpen" class="tablinks" onclick="openTab(event, 'light-panel')">Lights</button>
+            <button class="tablinks" onclick="openTab(event, 'audio-panel')">Music</button>
+            <button class="tablinks" onclick="openTab(event, 'lightshow-panel')">Lightshow</button>
+        </div>
+          
+          <div id="light-panel" class="tabcontent">
+                <h4> Turn lights on/off, or change their color/brightness.  </h4> 
+                <p class="light-messages" id="light1-message"> Light 1 is currently on. </p>
+                <label class="switch">
+                    <input type="checkbox" id="light1-toggle-switch" onclick="checkValueLight1()" checked>
+                    <span class="slider"></span>
+                </label>
+                <input type="color" value="#c4040b" class="input-color-picker" id="light1-color-picker-value" onchange="changeLight1Color()">  </input>
+                
+                <br>
+                <p class="light-messages" id="light2-message"> Light 2 is currently on. </p>
+                <label class="switch">
+                    <input type="checkbox" id="light2-toggle-switch" onclick="checkValueLight2()" checked>
+                    <span class="slider"></span>
+                </label>
+                <input type="color" value="#ffb23e" class="input-color-picker" id="light2-color-picker-value" onchange="changeLight2Color()">  </input>
+                     
+                <br>
+                <p class="light-messages" id="light3-message"> Light 3 is currently on. </p>
+                <label class="switch">
+                    <input type="checkbox" id="light3-toggle-switch" onclick="checkValueLight3()" checked>
+                    <span class="slider"></span>
+                </label>
+                <input type="color" value="#fff350" class="input-color-picker" id="light3-color-picker-value" onchange="changeLight3Color()">  </input>
+                
+                <br>
+                <p class="light-messages" id="light4-message"> Light 4 is currently on. </p>
+                <label class="switch">
+                    <input type="checkbox" id="light4-toggle-switch" onclick="checkValueLight4()" checked>
+                    <span class="slider"></span>
+                </label>
+                <input type="color" value="#26c03b" class="input-color-picker" id="light4-color-picker-value" onchange="changeLight4Color()">  </input>
+                
+                <br>
+                <p class="light-messages" id="light5-message"> Light 5 is currently on. </p>
+                <label class="switch">
+                    <input type="checkbox" id="light5-toggle-switch" onclick="checkValueLight5()" checked>
+                    <span class="slider"></span>
+                </label>
+                <input type="color" value="#0075e2" class="input-color-picker" id="light5-color-picker-value" onchange="changeLight5Color()">  </input>
+                
+                <br>
+                <p class="light-messages" id="light6-message"> Light 6 is currently on. </p>
+                <label class="switch">
+                    <input type="checkbox" id="light6-toggle-switch" onclick="checkValueLight6()" checked>
+                    <span class="slider"></span>
+                </label>
+                <input type="color" value="#321fe2" class="input-color-picker" id="light6-color-picker-value" onchange="changeLight6Color()">  </input>
+                
+                <br>
+                <p class="light-messages" id="light7-message"> Light 7 is currently on. </p>
+                <label class="switch">
+                    <input type="checkbox" id="light7-toggle-switch" onclick="checkValueLight7()" checked>
+                    <span class="slider"></span>
+                </label>
+                <input type="color" value="#6808c2" class="input-color-picker" id="light7-color-picker-value" onchange="changeLight7Color()">  </input>
+                <p> </p>
+            </div>
+
+            
+
+          <div id="audio-panel" class="tabcontent">
+            <audio id="audio-player" autoplay preload="auto" tabindex="0">
+                <source src="music/galloping_seahorses.mp3" type="audio/mpeg">
+                    Your browser doesn't support this element!
+            </audio>
+            <div class="play-pause-stop-wrapper" id="play-pause-stop-music">
+                <div class="playpause">
+                    <input type="checkbox" value="None" id="playpause-music" name="check" onclick="playPauseMusic()" />
+                    <label for="playpause-music" tabindex=1></label>
+                </div>
+                <div class="stop-button" id="stop-button-music" onclick="stopMusic()">
+                </div>
+            </div>
+            <h4 id="audio-message"> Choose a song to play: </h4>
+            <ol class="playlist">
+                <li id="taimane_audio" onclick="changeAudioTaimane()">
+                    Water - Taimane
+                </li>
+                <li id="jake_audio" onclick="changeAudioJake()">
+                    Galloping Seahorses - Jake Shimabukuro
+                </li>
+                <li id="pichan_audio" onclick="changeAudioPichan()">
+                    Under The Sea - Pichan Hiroshi
+                </li>
+            </ol>
+          </div>
+          
+
+
+          <div id="lightshow-panel" class="tabcontent">
+            <audio id="audio-player-lightshow" autoplay preload="auto" tabindex="0" >
+                <source src="" type="audio/mpeg">
+                    Your browser doesn't support this element!
+            </audio>
+            <div class="play-pause-stop-wrapper" id="play-pause-stop-lightshow">
+                <div class="playpause">
+                    <input type="checkbox" value="None" id="playpause-lightshow" name="check" onclick="playPauseLightshow()" />
+                    <label for="playpause-lightshow" tabindex=1></label>
+                </div>
+                <div class="stop-button" onclick="endLightshow()">
+                </div>
+            </div>
+            <h4 id="lightshow-message"> Choose a song to start a pre-programmed lightshow! </h4>
+            <ol class="playlist">
+                <li id="start-lightshow" onclick="startLightshowWater()">
+                    Start Lightshow for <i> Water </i>
+                </li>
+                <li id="start-lightshow" onclick="startLightshowGallopingSeahorses()">
+                    Start Lightshow for <i> Galloping Seahorses </i>
+                </li>
+                <li id="start-lightshow" onclick="startLightshowUnderTheSea()">
+                    Start Lightshow for <i> Under the Sea </i>
+                </li>
+            </ol>
+        </div>
+
+        
+    </body>
+
+</html>

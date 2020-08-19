@@ -1,0 +1,395 @@
+$red-glow-color: #c4040b;
+$orange-glow-color: #ffb23e;
+$yellow-glow-color: #fff350;
+$green-glow-color: #26c03b;
+$blue-glow-color: #0075e2;
+$purple-glow-color: #321fe2;
+$indigo-glow-color: #6808c2;
+$tab-color: #764248;
+$tab-color-active: #805960;
+$button-background-color: #D8D8F6;
+$button-hover-color: #c4b7cb;
+$button-font-color: #1b264c;
+$toggle-switch-active-color: #62A87C;
+$toggle-switch-off-color: #ff9c9c;
+$dark-blue-background-color: #1b264c;
+$pause-button-height: 35px;
+$pause-button-height-minus-fourteen: $pause-button-height - 14;
+
+@import url('https://fonts.googleapis.com/css?family=Cardo&display=swap');
+
+// BASIC SETUP
+body{
+    background: $dark-blue-background-color;
+    overflow: hidden;
+    display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	align-content: center;
+    justify-content: center;
+    font-family: 'Cardo', serif!important;
+    font-size: 22px;
+}
+p{
+    font-size: 18px; 
+    color: #ffffff;
+    margin: 1%;
+}
+h1{
+    color: #dcd4ff;
+}
+
+
+//LIGHTS ACROSS TOP PAGE
+ul{
+    position: absolute;
+    top: 175px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+ul li{
+    list-style: none;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: original 1.6s ease-in-out infinite;
+}
+#light1{
+    animation-delay: -1.4s;
+    background-color: $red-glow-color;
+    box-shadow: 0 0 50px $red-glow-color;    
+}
+#light2{
+    animation-delay: -1.2s;
+    background-color: $orange-glow-color;
+    box-shadow: 0 0 50px $orange-glow-color;
+}
+#light3{
+    animation-delay: -1s;
+    background-color: $yellow-glow-color;
+    box-shadow: 0 0 50px $yellow-glow-color;
+}
+#light4{
+    animation-delay: -0.8s;
+    background-color: $green-glow-color;
+    box-shadow: 0 0 50px $green-glow-color;
+}
+#light5{
+    animation-delay: -0.6s;
+    background-color: $blue-glow-color;
+    box-shadow: 0 0 50px $blue-glow-color;
+}
+#light6{
+    animation-delay: -0.4s;
+    background-color: $purple-glow-color;
+    box-shadow: 0 0 50px $purple-glow-color;
+}
+#light7{
+    animation-delay: -0.2s;
+    background-color: $indigo-glow-color;
+    box-shadow: 0 0 50px $indigo-glow-color;
+}
+//ANIMATIONS FOR THE DIFFERENT LIGHTSHOW
+@keyframes original {
+    0% , 40% , 100% {
+        transform: scale(0.2);
+    }
+    20% {
+        transform: scale(1);
+    }
+}
+@keyframes water {
+    0% , 60% , 100% {
+        transform: scale(0.2);
+    }
+    20%{
+        transform: scale(0.4);
+    }
+    40% {
+        transform: scale(0.8);
+    }
+}
+@keyframes galloping_seahorses {
+    0% , 40% , 100% {
+        transform: scale(0.2);
+    }
+    20% {
+        transform: scale(0.9);
+    }
+}
+@keyframes under_the_sea {
+    0% , 40% , 100% {
+        transform: scale(0.2);
+    }
+    20% {
+        transform: scale(.7);
+    }
+}
+
+
+
+//TAB AND TAB CONTENT
+.tab {
+    width: 65.5%;
+	margin-top: 5%;
+	background-color:transparent ;
+    color: #dcd4ff;
+    overflow: hidden;
+    font-family: 'Cardo', serif!important;
+}
+.tab button {
+    font-family: 'Cardo', serif!important;
+    background-color: $tab-color;
+    text-align: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 1.5%;
+    transition: 0.3s;
+    font-size: 23px;
+    width: calc(98.55%/3);
+    color:#ffffff;
+    &:hover {
+        background-color: $button-hover-color;
+      }
+    &:active {
+        background-color: $tab-color-active;
+    }
+}
+.clickedtab{
+    background-color: $tab-color-active!important;
+    color: #f7fafc!important;
+}
+.tabcontent {
+    background-color: #8A7B79;
+    color: transparent;
+    text-align: center;
+    width: 65.5%;
+    margin: auto;
+    display: none;
+    &:before{
+        content: "";
+        display: block;
+        padding: 1%;
+    }
+}
+
+
+
+//BUBBLE ANIMATION
+.bubbles {
+    width: 20px;
+    height: 20px;
+    bottom: 5%;
+    z-index: 2;
+    border-radius: 50%;
+    opacity: .50;
+    position: absolute;
+    margin-right: 50px;
+    background-color: #7beefd;
+    animation: bub 4s infinite;
+}
+.bubble1 {
+    left: 3%;
+    opacity: 50%;
+    animation: bub 2s infinite;
+}
+.bubble2 {
+    left: 85%;
+    opacity: .2;
+    animation: bub 4.5s infinite;
+}
+.bubble3 {
+    left: 8%;
+    opacity: .2;
+    animation: bub 3s infinite;
+}
+.bubble4 {
+    left: 95%;
+    opacity: 50%;
+    animation: bub 4s infinite;
+} 
+@keyframes bub {
+    100% {
+      transform: translateY(-4500%);
+    }
+}
+
+
+
+//LIGHT PANEL AND LIGHT PANEL CONTENT
+#light-panel{
+    color: #ffffff;
+}
+#light-panel-content{
+    margin-top: 2%;
+}
+h4{
+    font-size: 20px;
+    margin-top: auto;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.light-messages{
+    text-align: left;
+    display: inline-block;
+}
+#light-panel button{
+    border-radius: 3px;
+    box-shadow: 1px 3px 5px;
+    background-color: $button-background-color;
+    padding: .5%;
+    color: $button-font-color;
+    &:hover{
+        background-color: $button-hover-color;
+    }
+ }
+ input[type=color]{
+    -webkit-appearance: none;
+    height: 14px;
+    border: none;
+ }
+ input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 1px;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+  
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $toggle-switch-off-color;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: $toggle-switch-active-color;
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px $toggle-switch-active-color;
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+//AUDIO AND PLAYLIST 
+#playlist, audio {
+    width: 80%;
+    //margin-top: -10%;  
+}
+ol li{
+    display: block;
+    list-style-type: none;
+    width: 80%;
+    margin-left: 7.5%;
+    border: none;
+    background-color: $button-background-color;
+    color: $button-font-color;
+    font-size: 18px; 
+    cursor: pointer;
+    text-align: center;
+    transition: 0.5s;
+    padding: .5%;
+    &:hover{
+        background-color: $button-hover-color;
+    }
+}
+h4#audio-message{
+    color: #ffffff;
+}
+
+.play-pause-stop-wrapper{
+    width: 10%;
+    margin: 0 auto;
+    height: 40px;
+}
+
+.play-pause-stop-wrapper div{
+    float: left;
+    clear:none;
+    bottom: 10%;
+}
+
+.playpause {
+    display: flex;
+    label {
+        outline: none;
+        -webkit-appearance: none;
+        display: block;
+        box-sizing: border-box;
+        width: 0;
+        height: $pause-button-height;
+        border-color: transparent transparent transparent $dark-blue-background-color;
+        transition: 100ms all ease;
+        cursor: pointer;
+        border-style: double;
+        border-width: 0px 0 0px $pause-button-height-minus-fourteen;
+    }
+    input[type="checkbox"] {
+        outline: none;
+        position: absolute;
+        left: -9999px;
+        &:checked + label {
+            outline: none;
+            border-style: solid;
+            border-width: $pause-button-height/2 0 $pause-button-height/2 $pause-button-height-minus-fourteen;
+        }
+        &:focus + label {
+            outline: none;
+        }
+    }
+}
+.stop-button{
+    height: $pause-button-height;
+    width: $pause-button-height;
+    background-color: $dark-blue-background-color;
+    margin-left: 20%;
+    cursor: pointer;
+}
+
+#play-pause-stop-lightshow, #play-pause-stop-music{
+    display: none;
+}
+
+#lightshow-message{
+    color: #ffffff;
+}
